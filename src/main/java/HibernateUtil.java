@@ -7,7 +7,12 @@ public class HibernateUtil {
 
     private static SessionFactory initSessionFactory() {
         try {
-            return new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+            return new Configuration()
+                    .configure("hibernate.cfg.xml")
+                    //.addAnnotatedClass(myEntity1.class)
+                    //.addAnnotatedClass(myEntity2.class)
+                    //
+                    .buildSessionFactory();
         }
         catch (Throwable ex) {
             System.err.println("Initial SessionFactory failed."+ ex);
